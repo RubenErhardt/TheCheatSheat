@@ -1,7 +1,4 @@
 # TheCheatSheet
-
-# thecheatsheet
-
 Een interactieve HTML & CSS cheat sheet gebouwd met **SvelteKit** — speciaal voor beginnende developers.  
 In de vorm van een blog-achtige ervaring ontdek je de meest gebruikte elementen, properties en code patterns op een visuele, overzichtelijke manier.
 
