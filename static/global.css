@@ -1,12 +1,10 @@
 :root{
     --primary-color:#F7F3EF;
-    --secondary-color:#E2CFC4;
-    --tertiary-color:#C4B6A6;
     --quaternary-color:#AFA09A;
     --letter-color:#4A4A4A;
-    --letter-color-light:#B8B8B8;
-    --letter-color-dark:#2A2A2A;
     --font-family: 'JetBrains Mono', monospace;
+    --HTML-color: #e44d26;
+    --CSS-color: #264de4;
 }
 
 body{
@@ -17,5 +15,9 @@ body{
 
 html{
     scroll-behavior:smooth;
+}
+
+.HTML{
+    color:var(--HTML-color);
 }
 

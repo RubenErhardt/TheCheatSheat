@@ -1,7 +1,41 @@
 <script>
-    import Header from "$lib/Header.svelte";
-    import Sidebar from "$lib/Sidebar.svelte";
-</script>
+    import { page } from '$app/stores';
+    import { onMount } from 'svelte';
+    import { writable, derived } from 'svelte/store';
+    import Header from '$lib/Header.svelte';
+    import Sidebar from '$lib/Sidebar.svelte';
+    import { onNavigate } from '$app/navigation';
+
+onNavigate((navigation) => {
+	if (!document.startViewTransition) return;
+
+	return new Promise((resolve) => {
+		document.startViewTransition(async () => {
+			resolve();
+			await navigation.complete;
+		});
+	});
+});
+
+  
+    const currentHash = derived(page, $page => $page.url.hash || '#headings');
+  
+    const componentMap = {
+      '#headings': () => import('$lib/Headings.svelte'),
+      '#forms': () => import('$lib/Forms.svelte'),
+    };
+  
+    const Component = writable(null);
+  
+    $: if ($currentHash && componentMap[$currentHash]) {
+      componentMap[$currentHash]().then(mod => {
+        Component.set(mod.default);
+      });
+    } else {
+      Component.set(null); // fallback
+    }
+  </script>
+  
 
 <Header/>
 
@@ -24,17 +58,27 @@
 
 <section class="content-html-css">
     <Sidebar/>
+    <div class="main-content">
+        {#if $Component}
+          <svelte:component this={$Component} />
+        {:else}
+          <p>Section not found or not loaded yet.</p>
+        {/if}
+      </div>
+
 </section>
 
 <style>
 
     .introduction-thecheatsheet {
         display: flex;
+        margin-bottom: 2rem;
     }
 
     .introduction-thecheatsheet__text{
         display: flex;
         flex-direction: column;
+        max-width: 750px;
     }
 
     .introduction-thecheatsheet__title {
@@ -53,14 +97,60 @@
     }
 
     .HTML {
-        color: #e44d26;
+        color: var(--HTML-color);
     }
     .CSS {
-        color: #264de4;
+        color: var(--CSS-color);
     }
 
     .hero-image{
-        padding: 20px;
+        padding: 1rem 1rem;
     }
+
+    .content-html-css {
+        display: flex;
+        margin-top: 2rem;
+    }
+
+    .main-content {
+        margin-left: 1rem;
+    }
+
+    @keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes slide-from-right {
+	from {
+		transform: translateX(30px);
+	}
+}
+
+@keyframes slide-to-left {
+	to {
+		transform: translateX(-30px);
+	}
+}
+
+:root::view-transition-old(root) {
+	animation:
+		90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+		300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+:root::view-transition-new(root) {
+	animation:
+		210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+		300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
 </style>
 
