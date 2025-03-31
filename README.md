@@ -1,23 +1,26 @@
 # TheCheatSheet
-Een interactieve HTML & CSS cheat sheet gebouwd met **SvelteKit** — speciaal voor beginnende developers.  
-In de vorm van een blog-achtige ervaring ontdek je de meest gebruikte elementen, properties en code patterns op een visuele, overzichtelijke manier.
+# thecheatsheet
 
-## 🚀 Doel van het project
+**thecheatsheet** is a visual, beginner-friendly HTML & CSS cheat sheet built with **SvelteKit**.  
+Think of it as a blog-style guide for new developers — short, clear, and interactive examples to help you learn by doing.
 
-Het doel is om starters in webdevelopment snel wegwijs te maken in de basis van HTML en CSS.  
-Geen saaie documentatie, maar een toegankelijke en aantrekkelijke plek om te leren door te **zien, proberen en toepassen**.
+## 🎯 Goal
 
-## ✨ Features (gepland)
+To make learning HTML and CSS easier, faster, and more fun for beginner front-end developers.  
+No overwhelming docs, just real examples with quick explanations.
 
-- 📘 Overzichtelijke categorisatie van HTML-tags en CSS-properties  
-- 🧠 Korte uitleg met voorbeelden per onderwerp  
-- 🎨 Live code snippets met voorbeeldweergave  
-- 🔍 Zoekfunctie om snel elementen te vinden  
-- 💬 Mogelijkheid om eigen notities toe te voegen (later)
+## ✨ Planned Features
 
-## 🛠️ Gemaakt met
+- 📚 Categorized HTML elements & CSS properties  
+- 🧪 Live examples for each tag or property  
+- 📝 Short descriptions and tips  
+- 🔎 Search function for quick access  
+- 💬 (Coming later) Add your own notes or favorite snippets
 
-- [SvelteKit](https://kit.svelte.dev/)
-- HTML5 & CSS3
-- (Later mogelijk: Tailwind CSS, Markdown parsing, etc.)
+## 🔧 Built with
+
+- [SvelteKit](https://kit.svelte.dev)  
+- HTML5 & CSS3  
+- (Optional later: Tailwind CSS, Markdown support, CodeMirror)
+
 
