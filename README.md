@@ -1,5 +1,4 @@
 # TheCheatSheet
-# thecheatsheet
 
 **thecheatsheet** is a visual, beginner-friendly HTML & CSS cheat sheet built with **SvelteKit**.  
 Think of it as a blog-style guide for new developers — short, clear, and interactive examples to help you learn by doing.
