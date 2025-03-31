@@ -1,25 +1,38 @@
-# TheCheatSheet
+# sv
 
-**thecheatsheet** is a visual, beginner-friendly HTML & CSS cheat sheet built with **SvelteKit**.  
-Think of it as a blog-style guide for new developers — short, clear, and interactive examples to help you learn by doing.
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## 🎯 Goal
+## Creating a project
 
-To make learning HTML and CSS easier, faster, and more fun for beginner front-end developers.  
-No overwhelming docs, just real examples with quick explanations.
+If you're seeing this, you've probably already done this step. Congrats!
 
-## ✨ Planned Features
+```bash
+# create a new project in the current directory
+npx sv create
 
-- 📚 Categorized HTML elements & CSS properties  
-- 🧪 Live examples for each tag or property  
-- 📝 Short descriptions and tips  
-- 🔎 Search function for quick access  
-- 💬 (Coming later) Add your own notes or favorite snippets
+# create a new project in my-app
+npx sv create my-app
+```
 
-## 🔧 Built with
+## Developing
 
-- [SvelteKit](https://kit.svelte.dev)  
-- HTML5 & CSS3  
-- (Optional later: Tailwind CSS, Markdown support, CodeMirror)
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
+```bash
+npm run dev
 
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
